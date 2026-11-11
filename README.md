@@ -96,7 +96,7 @@ The published manifest targets `linux/amd64` and `linux/arm64`. A 32-bit Raspber
 
 ## Development and testing
 
-- `python -m pip install -r requirements-dev.txt && python -m pytest tests` (Python 3.12). These **mocked** offline tests stub HTTP and PDF libraries and test control flow and validation only.
+- `python -m pip install -r requirements-dev.txt && python -m unittest discover -s tests -v` (Python 3.12). These **mocked** offline tests stub HTTP and PDF libraries and test control flow and validation only.
 - `scripts/smoke_test.py` runs inside the built image with real qpdf, OCRmyPDF, Poppler and PDF assembly on a generated synthetic PDF, against a mock Ollama HTTP server (valid responses plus deliberate HTTP 500 and invalid-schema failures). No GPU. CI runs it. Locally:
   ```bash
   docker build -t paperless-preprocessor:dev .

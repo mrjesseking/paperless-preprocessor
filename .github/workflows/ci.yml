@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -r requirements-dev.txt
-      - run: python -m pytest -q tests
+      - run: python -m unittest discover -s tests -v
 
   build:
     name: Build image (no publish) + container smoke test
