@@ -1,0 +1,32 @@
+# The Dockerfile copies only requirements.txt and processor.py explicitly, but keep
+# the build context small and free of anything sensitive anyway.
+.git
+.github
+.env
+.env.*
+!.env.example
+docker-compose*.yml
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+incoming
+consume
+work
+processed
+failed
+*.log
+*.bak
+*.tar
+*.tar.gz
+__pycache__
+*.pyc
+.pytest_cache
+.venv
+venv
+tests
+docs
+scripts
+README.md

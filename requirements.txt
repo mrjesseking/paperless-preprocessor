@@ -1,0 +1,7 @@
+# Runtime dependencies (Python 3.12). Versions are pinned; the Docker build in CI
+# is what verifies this combination. OCRmyPDF also needs qpdf, Ghostscript and
+# Tesseract from the OS (installed in the Dockerfile).
+ocrmypdf==15.4.4
+pikepdf==9.11.0
+reportlab==5.1.0
+requests==2.32.5

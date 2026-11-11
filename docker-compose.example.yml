@@ -1,0 +1,12 @@
+# Preprocessor-only example. Placeholders: replace host paths and OLLAMA_URL.
+# No Paperless API token is needed. Ollama runs elsewhere and is NOT part of this file.
+services:
+  preprocessor:
+    image: ghcr.io/mrjesseking/paperless-preprocessor:latest   # or pin a version, e.g. :0.1.0
+    container_name: paperless-preprocessor
+    restart: unless-stopped
+    env_file: .env          # copy .env.example to .env first
+    volumes:
+      - /path/on/host/incoming:/nas/incoming
+      - /path/on/host/consume:/nas/consume    # Paperless's consume folder
+      - /path/on/host/work:/nas/work
