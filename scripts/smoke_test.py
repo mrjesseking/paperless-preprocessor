@@ -76,9 +76,9 @@ def check(cond: bool, msg: str) -> None:
 
 
 def main() -> None:
+    import shutil
     for tool in ("qpdf", "pdftoppm", "pdftotext", "ocrmypdf", "tesseract", "gs"):
-        r = subprocess.run([tool, "--version"], capture_output=True, text=True)
-        check(r.returncode == 0, f"{tool} available")
+        check(shutil.which(tool) is not None, f"{tool} available")
 
     server = HTTPServer(("127.0.0.1", 0), Handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
